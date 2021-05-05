@@ -1,0 +1,19 @@
+<div class="catalog">
+  <div class="catalog__header">
+    <div class="catalog__title">Product catalog</div>
+    <div class="catalog__description">Here you can find and buy fresh and delicious food</div>
+  </div>
+
+
+  <div class="catalog__list">
+      <app-product-card
+       class="catalog__item-card"
+       *ngFor="let product of (products$ | async)"
+       [product]="product"
+      ></app-product-card>
+  </div>
+</div>
+  
+  <ng-template #loading>
+    <div> Loading... </div>
+  </ng-template>

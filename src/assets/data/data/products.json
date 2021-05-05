@@ -1,0 +1,32 @@
+[
+	{
+    "id": 0,
+    "title": "Hass Avocados",
+    "category": { "id":  1, "title": "Vegetables"},
+    "description": "Hass Avocados, Ready-to-Eat",
+    "longDescription": "These gorgeous Hass avocados are shipped to you ready to eat! Don't delay in enjoying the buttery texture and rich, slightly sweet flavor. We love to plump up burritos, sandwiches and salads with these butter pears, but they also make a satisfying addition to health smoothies to start your day off right.",
+    "imageUrl": {
+      "small": "assets/images/0_s.jpg",
+      "big": "assets/images/0_b.jpg"
+    }
+  }, {
+    "id": 1,
+    "title": "Bananas",
+    "category": { "id":  0, "title": "Fruits"},
+    "description": "Equal Exchange Fair Trade Organic Bananas.",
+    "longDescription": "The banana is an anytime, year-round snack. We like them fully yellow with just a dusting of brown freckles. But super-ripe, meltingly sweet bananas and firmer greenish ones have their fans too. Slice them onto cereal or pancakes, fold into fruit salad, blend into smoothies, and bake into muffins. Heat brings out bananas' creamy sweetness.",
+    "imageUrl": {
+      "small": "assets/images/1_s.jpg",
+      "big": "assets/images/1_b.jpg"
+    }
+  }, {
+    "id": 2,
+    "title": "Honeycrisp Apples",
+    "category": { "id":  0, "title": "Fruits"},
+    "description": "Rainier Organic Honeycrisp Apples",
+    "longDescription": "True to its name, the honeycrisp is sweet and crunchy with a warm, yellow interior and an attractive yellow-red streaked skin. We love this healthy treat packed in a lunch, sliced for after-school snacks or as a take-along for your anytime snacking.",
+    "imageUrl": {
+      "small": "assets/images/2_s.jpg",
+      "big": "assets/images/2_b.jpg"
+    }
+  }]
