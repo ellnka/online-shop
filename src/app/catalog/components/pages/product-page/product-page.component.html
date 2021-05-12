@@ -1,0 +1,4 @@
+<div class="product-page">
+    <app-header [title]="(product$ | async)?.title || '' "></app-header>
+    <app-product-details  [product]="(product$ | async)"></app-product-details>
+</div>

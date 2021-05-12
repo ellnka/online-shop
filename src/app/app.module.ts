@@ -9,13 +9,15 @@ import { StoreModule } from '@ngrx/store';
 
 import { ProductListComponent } from './catalog/components/product-list/product-list.component';
 import { CatalogPageComponent } from './catalog/components/pages/catalog-page/catalog-page.component';
-import { NotFoundPageComponent } from './common/pages/not-found-page/not-found-page.component';
+import { NotFoundPageComponent } from './common/components/pages/not-found-page/not-found-page.component';
 import { HeaderComponent } from './common/components/header/header.component';
 import { ProductCardComponent } from './catalog/components/product-card/product-card.component';
 
 import { reducers, effects, CustomSerializer } from "./catalog/store";
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
-import { HomePageComponent } from './common/pages/home-page/home-page.component';
+import { HomePageComponent } from './common/components/pages/home-page/home-page.component';
+import { ProductDetailsComponent } from './catalog/components/product-details/product-details.component';
+import { ProductPageComponent } from './catalog/components/pages/product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HomePageComponent } from './common/pages/home-page/home-page.component'
     NotFoundPageComponent,
     HeaderComponent,
     ProductCardComponent,
-    HomePageComponent
+    HomePageComponent,
+    ProductDetailsComponent,
+    ProductPageComponent
   ],
   imports: [
     BrowserModule,

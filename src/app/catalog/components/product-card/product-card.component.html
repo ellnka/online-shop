@@ -1,6 +1,8 @@
 
 <div class="product-card">
-  <img  class="product-card__img" div-image [src]="product.imageUrl?.small" [alt]="product.title">
+  <div class="product-card__img-holder">
+    <img  class="product-card__img" div-image [src]="product.imageUrl?.small" [alt]="product.title" width="100%">
+  </div>
   <div>
     <div class="product-card__title"><a class="product-card__link" [routerLink]="['/product', product.id]">{{product.title}} </a> </div>
     <div class="product-card__category">{{product.category?.title}}</div>

@@ -1,11 +1,11 @@
-<div class="catalog">
+<div class="catalog" >
   <div class="catalog__header">
     <div class="catalog__title">Product catalog</div>
     <div class="catalog__description">Here you can find and buy fresh and delicious food</div>
   </div>
 
 
-  <div class="catalog__list">
+  <div class="catalog__list" *ngIf="!(productsLoading$ | async); else loading">
       <app-product-card
        class="catalog__item-card"
        *ngFor="let product of (products$ | async)"

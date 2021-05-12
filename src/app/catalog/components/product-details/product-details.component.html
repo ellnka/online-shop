@@ -1,0 +1,18 @@
+<div class="product-details">
+    
+    <div class="product-details__left-col">
+      <div class="product-details__content">
+        <h2 class="product-detail__title">{{ product?.title }}</h2>
+        <h3 class="product-detail__subtitle">{{product?.category?.title}}</h3>
+      </div>
+  
+      <div>
+        <p> {{product?.longDescription}} </p>
+      </div>
+      
+    </div>
+    <div  class="product-details__right-col">
+      <img mat-card-image [src]="product?.imageUrl?.big" [alt]="product?.title" width="300px">
+    </div>
+  
+  </div>
