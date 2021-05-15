@@ -15,7 +15,7 @@
     "server-install": "npm install --prefix server",
     "server": "npm run start --prefix server",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install && npm run server-install && npm run server && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install && npm run server-install && npm run build"
   },
   "private": true,
   "dependencies": {
