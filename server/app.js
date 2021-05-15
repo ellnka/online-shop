@@ -39,7 +39,7 @@ app.use('/api/order', orderRoutes);
 app.use('/api/product', productRoutes);
 
 
-if (process.env.NODE_ENV === 'production' || 1 === 1) {
+if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../dist/online-shop'))
   
     app.get('*', (req, res) => {
