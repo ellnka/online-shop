@@ -2,9 +2,15 @@
     <div class="header__logo">
       <h1 class="header__title">{{title}}</h1>
     </div>
-    <nav class="header__menu">
-      <a class="header__menu-item" routerLink="/">Home</a>
-      <a class="header__menu-item" routerLink="/catalog">Catalog</a>
-    </nav>
-    <div class="header__profile"></div>
+    <ul class="header__menu">
+      <li><a class="header__menu-item" routerLink="/">Home</a></li>
+      <li routerLinkActive="active"><a class="header__menu-item" routerLink="/catalog">Catalog</a></li>
+    </ul>
+    <div class="header__profile">
+      <ul class="header__menu">
+        <li routerLinkActive="active" *ngIf="!isAuth"><a class="header__menu-item" routerLink="/login">Login</a></li>
+        <li routerLinkActive="active" *ngIf="!isAuth"><a class="header__menu-item" routerLink="/register">Register</a></li>
+        <li><a class="header__menu-item" href="#" (click)="logout($event)" *ngIf="isAuth">Logout</a></li>
+      </ul>
+    </div>
   </div>

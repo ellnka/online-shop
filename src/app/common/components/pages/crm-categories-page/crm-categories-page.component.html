@@ -1,0 +1,53 @@
+
+<div class="page">
+    <div class="page__title-wrapper">
+        <h1 class="page__title">Add new category</h1>
+    </div>
+    
+    <div class="form-wrapper wrapper">
+        <form class="form wrapper__col" 
+                autocomplete="off"
+                [formGroup]="form"
+                (ngSubmit)="onSubmit()">
+                <input class="form__input" formControlName="_id" type="hidden">
+                <input class="form__input" formControlName="__v" type="hidden">
+            <div class="form__field">
+                <label class="form__label" for="name"><span>Name</span></label>
+                <input class="form__input" formControlName="name">
+                <span class="form__error" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+                    <span *ngIf="form.get('name')?.errors?.required">Name cannot be empty</span>
+                </span>
+            </div>
+            <div class="form__field">
+                <label class="form__label" for="description"><span>Description</span></label>
+                <input class="form__input" formControlName="description">
+            </div>
+            <div class="form__field">
+                <label class="form__label" for="image"><span>Image</span></label>
+                <input class="form__input" formControlName="image" type="file" (change)="onFileSelect($event)">
+            </div>
+            <div class="actions-wrapper">
+                <button type="submit" class="form__submit button" name="send" id="send" >
+                    Submit        
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="list">
+        <div class="list__header">
+            <div class="list__cell list__cell--25">Name</div>
+            <div class="list__cell list__cell--50">Description</div>
+            <div class="list__cell list__cell--25"></div>
+        </div>
+
+        <div class="list__row" *ngFor="let category of categories">
+            <div class="list__cell list__cell--25">{{category.name}}</div>
+            <div class="list__cell list__cell--50">{{category.description}}</div>
+            <div class="list__cell list__cell--25">
+                <button class="button" (click)="onSelectCategory(category)">Edit</button>
+                <button class="button button--red" (click)="onDeleteCategory(category)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

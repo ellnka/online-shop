@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EMPTY, Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 
-import { IProduct } from "../../../models/IProduct";
+import { IProduct } from "../../../../models/IProduct";
 import * as fromStore from './../../../store';
 
 @Component({
@@ -12,11 +12,9 @@ import * as fromStore from './../../../store';
 })
 export class ProductPageComponent implements OnInit {
 
-  public product$: Observable<IProduct>;
+  public product$: Observable<IProduct> = EMPTY;
 
-  constructor(private store: Store<fromStore.State>) {
-    this.product$ = EMPTY;
-  }
+  constructor(private store: Store<fromStore.State>) { }
 
   ngOnInit(): void {
     this.product$ = this.store.select(fromStore.getSelectedProduct);

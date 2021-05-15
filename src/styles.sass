@@ -23,10 +23,16 @@ button, button:hover, button:focus, button:active
   font-family: 'Poppins', sans-serif
   font-weight: 600
   outline: none
-  
 
 button:hover
   cursor: pointer
+
+input 
+  width: 100%
+  font-size: 18px
+  line-height: 1.2
+  outline: 0 
+  background-color: $color-milk-white
 
 h1, h2, h3
   margin: 0
@@ -41,5 +47,43 @@ a:link, a:visited
 a:hover, a:active
   color: $color-red
 
+.active a
+  color: $color-red
 
+.button
+  display: inline-block
+  padding: 15px 38px
+  text-transform: uppercase
+  font-size: 16px
+  font-weight: 700
+  line-height: 1.5
+  letter-spacing: .075em
+  outline: 0
+  border: 3px solid transparent
+  cursor: pointer
+  text-align: center
+  transition: background .3s ease-out
 
+  &:hover
+    color: $color-red
+    font-size: 16px
+    font-weight: 700
+
+  &--peach-puff
+    background-color: $background-peach-puff
+
+  &--purple
+    background-color: $color-purple
+
+  &--grey
+    background-color: $color-grey
+
+  &--green
+    background-color: $color-green
+
+ul 
+  list-style-type: none
+
+li
+  margin: 0
+  padding: 0

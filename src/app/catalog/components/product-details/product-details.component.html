@@ -2,17 +2,17 @@
     
     <div class="product-details__left-col">
       <div class="product-details__content">
-        <h2 class="product-detail__title">{{ product?.title }}</h2>
-        <h3 class="product-detail__subtitle">{{product?.category?.title}}</h3>
+        <h2 class="product-detail__title">{{ product?.name }}</h2>
+        <h3 class="product-detail__subtitle">{{product?.category?.name}}</h3>
       </div>
   
       <div>
-        <p> {{product?.longDescription}} </p>
+        <p> {{product?.description}} </p>
       </div>
       
     </div>
     <div  class="product-details__right-col">
-      <img mat-card-image [src]="product?.imageUrl?.big" [alt]="product?.title" width="300px">
+      <img mat-card-image [src]="product?.imageBig" [alt]="product?.name" width="400px">
     </div>
   
   </div>

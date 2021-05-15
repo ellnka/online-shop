@@ -1,4 +1,4 @@
-import {CatalogEffects} from './catalog.effects';
+import { CatalogEffects } from './catalog.effects';
 
 export const effects: any[] = [CatalogEffects];
 

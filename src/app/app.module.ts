@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from "@angular/common/http";
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
 
 import { ProductListComponent } from './catalog/components/product-list/product-list.component';
 import { CatalogPageComponent } from './catalog/components/pages/catalog-page/catalog-page.component';
@@ -14,10 +16,22 @@ import { HeaderComponent } from './common/components/header/header.component';
 import { ProductCardComponent } from './catalog/components/product-card/product-card.component';
 
 import { reducers, effects, CustomSerializer } from "./catalog/store";
-import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { HomePageComponent } from './common/components/pages/home-page/home-page.component';
 import { ProductDetailsComponent } from './catalog/components/product-details/product-details.component';
 import { ProductPageComponent } from './catalog/components/pages/product-page/product-page.component';
+import { LoginPageComponent } from './common/components/pages/login-page/login-page.component';
+import { AuthLayoutComponent } from './common/components/layouts/auth-layout/auth-layout.component';
+import { SiteLayoutComponent } from './common/components/layouts/site-layout/site-layout.component';
+import { RegisterPageComponent } from './common/components/pages/register-page/register-page.component';
+import { TokenInterceptor } from './common/interceptors/token.interceptor';
+import { OverviewPageComponent } from './profile/components/pages/overview-page/overview-page.component';
+import { ProfileLayoutComponent } from './common/components/layouts/profile-layout/profile-layout.component';
+import { ProfilePageComponent } from './profile/components/pages/profile-page/profile-page.component';
+import { OrderHistoryPageComponent } from './profile/components/pages/order-history-page/order-history-page.component';
+import { CrmPageComponent } from './common/components/pages/crm-page/crm-page.component';
+import { CrmCategoriesPageComponent } from './common/components/pages/crm-categories-page/crm-categories-page.component';
+import { CrmProductsPageComponent } from './common/components/pages/crm-products-page/crm-products-page.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +43,18 @@ import { ProductPageComponent } from './catalog/components/pages/product-page/pr
     ProductCardComponent,
     HomePageComponent,
     ProductDetailsComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    LoginPageComponent,
+    AuthLayoutComponent,
+    SiteLayoutComponent,
+    RegisterPageComponent,
+    OverviewPageComponent,
+    ProfileLayoutComponent,
+    ProfilePageComponent,
+    OrderHistoryPageComponent,
+    CrmPageComponent,
+    CrmCategoriesPageComponent,
+    CrmProductsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,8 +63,11 @@ import { ProductPageComponent } from './catalog/components/pages/product-page/pr
     StoreModule.forRoot(reducers),
     HttpClientModule,
     StoreRouterConnectingModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
+  providers: [{provide: RouterStateSerializer, useClass: CustomSerializer},
+              {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

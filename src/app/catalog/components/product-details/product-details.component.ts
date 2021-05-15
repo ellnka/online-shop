@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EMPTY } from 'rxjs';
-import {IProduct} from '../../models/IProduct';
+import {IProduct} from '../../../models/IProduct';
 
 @Component({
   selector: 'app-product-details',
@@ -12,16 +12,8 @@ export class ProductDetailsComponent implements OnInit {
   
   constructor() {
     this.product = {
-      id: -1,
-      title: "",
-      category: { id: -1, title: "" },
-      description: "",
-      longDescription: "",
-      imageUrl: {
-        small: "",
-        big: ""
-      }
-    };;
+      name: ""
+    };
   }
 
   ngOnInit(): void {

@@ -1,0 +1,43 @@
+
+<div class="page">
+    <div class="page__title-wrapper">
+        <h1 class="page__title">Login</h1>
+    </div>
+    
+    <div class="login-wrapper wrapper">
+        <form class="login wrapper__col" 
+                autocomplete="off"
+                [formGroup]="form"
+                (ngSubmit)="onSubmit()">
+            <div class="login__field">
+                <input class="login__input" formControlName="email">
+                <label class="login__label" for="email"><span>Email</span></label>
+                <span class="login__error" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+                    <span *ngIf="form.get('email')?.errors?.required">Email cannot be empty</span>
+                    <span *ngIf="form.get('email')?.errors?.email">Email is not valid</span>
+                </span>
+            </div>
+            <div class="login__field">
+                <input type="password" class="login__input" formControlName="password">
+                <label for="password" class="login__label"><span>Пароль</span></label>
+                <span class="login__error" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+                    <span *ngIf="form.get('password')?.errors?.required">Password cannot be empty</span>
+                    <span *ngIf="form.get('password')?.errors?.minlength?.requiredLength">Password should be longer than {{form.get('password')?.errors?.minlength?.requiredLength}} symbols</span>
+                </span>
+            </div>
+            <div class="actions-wrapper">
+                <button type="submit" class="form__submit button" name="send" id="send" [disabled]="form.invalid || form.disabled">
+                    Submit        
+                </button>
+
+                <a class="login__forgot-link" routerLink="/password-reminder"><span> Forgot password? </span></a>
+            </div>
+        </form>
+
+        <div class="register wrapper__col">
+            <h3 class="title"> Join us!    </h3>
+            <div class="content">Follow your orders!</div>
+            <a routerLink="/register" class="register-link button button--green"><span>Register</span> </a>
+        </div>
+    </div>
+</div>

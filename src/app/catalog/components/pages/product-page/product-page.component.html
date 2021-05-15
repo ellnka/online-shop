@@ -1,4 +1,7 @@
 <div class="product-page">
-    <app-header [title]="(product$ | async)?.title || '' "></app-header>
-    <app-product-details  [product]="(product$ | async)"></app-product-details>
+    <app-product-details  [product]="(product$ | async)"  *ngIf="(product$ | async)?.name; else loading"></app-product-details>
+
+    <ng-template #loading>
+      <div> Loading... </div>
+    </ng-template>
 </div>

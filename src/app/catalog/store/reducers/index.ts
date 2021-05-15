@@ -4,7 +4,6 @@ import { Params } from '@angular/router';
 
 import * as fromCatalog from './catalog.reducer'
 
-
 export interface RouterStateUrl {
   url: string,
   queryParams: Params,

@@ -11,7 +11,7 @@ export class CatalogResolver implements Resolve<void> {
   constructor(private store: Store<fromStore.State>) { }
 
   resolve(): void {
-    this.store.select(fromStore.getAllCatalog)
+    this.store.select(fromStore.getAllProductEntities)
       .pipe(take(1))
       .subscribe(
       catalog => {
