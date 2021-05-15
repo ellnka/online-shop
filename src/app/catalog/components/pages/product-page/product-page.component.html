@@ -1,0 +1,7 @@
+<div class="product-page">
+    <app-product-details  [product]="(product$ | async)"  *ngIf="(product$ | async)?.name; else loading"></app-product-details>
+
+    <ng-template #loading>
+      <div> Loading... </div>
+    </ng-template>
+</div>

@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="profile-block">
+    <div class="sidebar">
+        <ul class="menu">
+            <li class="menu__item" *ngFor="let link of links">
+                <a [routerLink]="[link.url]" class="">{{link.name}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

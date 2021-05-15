@@ -1,0 +1,13 @@
+
+<div class="product-card">
+  <div class="product-card__img-holder">
+    <img  class="product-card__img" div-image [src]="product.imageSmall" [alt]="product.name" height="100%">
+  </div>
+  <div>
+    <div class="product-card__title"><a class="product-card__link" [routerLink]="['/product', product._id]">{{product.name}} </a> </div>
+    <div class="product-card__category">{{product.category?.name}}</div>
+  </div>
+  <div class="product-card__description">
+    <p>{{product.description}}</p>
+  </div>
+</div>
