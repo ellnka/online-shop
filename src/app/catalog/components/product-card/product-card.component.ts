@@ -12,6 +12,7 @@ import * as fromStore from '../../store';
 export class ProductCardComponent implements OnInit {
 
   @Input() product: IProduct;
+  currency:string = "$";
 
   constructor(
     private store: Store<fromStore.State>
@@ -23,5 +24,7 @@ export class ProductCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  addToBasket():void {}
 
 }

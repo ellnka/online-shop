@@ -10,8 +10,37 @@
 
   &__img-holder
     height: 185px
+    z-index: 10
+    position: relative
 
   &__description
     font-weight: 300
     font-size: 14px
-    
+
+  &__title
+    text-align: left
+    padding: 8px 12px
+
+  &__info-header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+  &__info
+    background-color: rgba(255, 255, 255, 0.75)
+    margin-top: -48px
+    z-index: 20
+    position: relative
+
+  &__add-to-basket
+    display: flex
+    flex-direction: row
+    cursor: pointer
+    align-items: center
+    justify-content: center
+
+.basket-icon-wrap
+  display: flex
+  align-items: center
+  justify-content: center  
+  width: 32px 
