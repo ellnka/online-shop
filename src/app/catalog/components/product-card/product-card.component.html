@@ -6,7 +6,7 @@
   <div class="product-card__info">
     <div class="product-card__info-header">
       <div class="product-card__title"><a class="product-card__link" [routerLink]="['/product', product._id]">{{product.name}} </a> </div>
-      <div class="product-card__add-to-basket button-wrap" (click)=[addToBasket()]>
+      <div class="product-card__add-to-basket button-wrap" ng-click="addToBasket()">
           <span>{{product.cost}}{{currency}}</span>
           <span class="basket-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
             <path x2="50%" y2="50%"

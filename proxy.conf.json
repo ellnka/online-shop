@@ -1,12 +1,12 @@
 {
     "/api/*": {
-        "target": "https://afternoon-cliffs-00013.herokuapp.com/",
+        "target": "http://localhost:5000",
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true
     },
     "/uploads/*": {
-        "target": "https://afternoon-cliffs-00013.herokuapp.com/",
+        "target": "http://localhost:5000",
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true
