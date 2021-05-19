@@ -8,15 +8,15 @@
     </ul>
     <div class="header__profile">
       <ul class="header__menu">
-        <li routerLinkActive="active" *ngIf="!isAuth"><a class="header__menu-item" routerLink="/login">Login</a></li>
-        <li routerLinkActive="active" *ngIf="!isAuth"><a class="header__menu-item" routerLink="/register">Register</a></li>
+        <li routerLinkActive="active" *ngIf="!isAuth"><a class="header__menu-item" routerLink="/auth/login">Login</a></li>
+        <li routerLinkActive="active" *ngIf="!isAuth"><a class="header__menu-item" routerLink="/auth/register">Register</a></li>
         <li>
           <a class="header__menu-item header__profile" *ngIf="isAuth" routerLink="/basket">
             <img src="assets/images/cart.png" width="32px" alt="Basket" />
           </a>
         </li>
         <li>
-          <a class="header__menu-item header__profile" *ngIf="isAuth" routerLink="/overview">
+          <a class="header__menu-item header__profile" *ngIf="isAuth" routerLink="/profile/overview">
             <img src="assets/images/profile_icon.png" width="32px" alt="User profile"/>
           </a>
         </li>
