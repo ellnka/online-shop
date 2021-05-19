@@ -5,6 +5,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +33,7 @@ import { OrderHistoryPageComponent } from './profile/components/pages/order-hist
 import { CrmPageComponent } from './common/components/pages/crm-page/crm-page.component';
 import { CrmCategoriesPageComponent } from './common/components/pages/crm-categories-page/crm-categories-page.component';
 import { CrmProductsPageComponent } from './common/components/pages/crm-products-page/crm-products-page.component';
+import { CarouselComponent } from './common/components/carousel/carousel.component';
 
 
 @NgModule({
@@ -55,6 +58,7 @@ import { CrmProductsPageComponent } from './common/components/pages/crm-products
     CrmPageComponent,
     CrmCategoriesPageComponent,
     CrmProductsPageComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +69,7 @@ import { CrmProductsPageComponent } from './common/components/pages/crm-products
     StoreRouterConnectingModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    CarouselModule,
   ],
   providers: [{provide: RouterStateSerializer, useClass: CustomSerializer},
               {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor}],
