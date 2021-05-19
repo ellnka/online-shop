@@ -31,6 +31,7 @@ import { OrderHistoryPageComponent } from './profile/components/pages/order-hist
 import { CrmPageComponent } from './common/components/pages/crm-page/crm-page.component';
 import { CrmCategoriesPageComponent } from './common/components/pages/crm-categories-page/crm-categories-page.component';
 import { CrmProductsPageComponent } from './common/components/pages/crm-products-page/crm-products-page.component';
+import { FilterCatalogPipe } from './catalog/pipes/filter-catalog.pipe';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { CrmProductsPageComponent } from './common/components/pages/crm-products
     CrmPageComponent,
     CrmCategoriesPageComponent,
     CrmProductsPageComponent,
+    FilterCatalogPipe,
   ],
   imports: [
     BrowserModule,

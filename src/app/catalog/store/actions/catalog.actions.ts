@@ -8,4 +8,4 @@ export const LoadCatalogFail = createAction('[Product] Load Catalog Fail', props
 export const LoadCatalogSuccess = createAction('[Product] Load Products Success', props<{ payload: IProduct[]}>());
 export const LoadCategoriesSuccess = createAction('[Product] Load Categories Success', props<{ payload: ICategory[]}>());
 export const UpdateProduct = createAction('[Product] Update Product', props<{ payload: IProduct}>());
-export const SelectCategory = createAction('[Product] Select Category', props<{ payload: number}>());
+export const SelectCategory = createAction('[Product] Select Category', props<{ payload: string}>());
