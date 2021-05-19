@@ -8,7 +8,7 @@
   <div class="catalog__list" *ngIf="!(productsLoading$ | async); else loading">
       <app-product-card
        class="catalog__item-card"
-       *ngFor="let product of (products$ | async)"
+       *ngFor="let product of (products$ | async) | filterCatalog:(selectedCategoryId$ | async)"
        [product]="product"
       ></app-product-card>
   </div>

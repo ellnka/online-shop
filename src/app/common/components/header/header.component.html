@@ -4,7 +4,15 @@
     </div>
     <ul class="header__menu">
       <li><a class="header__menu-item" routerLink="/">Home</a></li>
-      <li routerLinkActive="active"><a class="header__menu-item" routerLink="/catalog">Catalog</a></li>
+      <li routerLinkActive="active">
+      <div class="dropdown">
+        <a class="header__menu-item dropbtn" routerLink="/catalog">Catalog</a>
+          <div class="dropdown-content">
+            <span (click)="filterProductsByCategory('')">All</span>
+            <span *ngFor="let category of (categories$ | async)" (click)="filterProductsByCategory(category?._id || '')">{{category.name}}</span>
+          </div>
+        </div>
+      </li>
     </ul>
     <div class="header__profile">
       <ul class="header__menu">

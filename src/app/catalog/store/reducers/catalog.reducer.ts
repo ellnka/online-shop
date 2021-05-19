@@ -2,14 +2,13 @@ import { Action, createReducer, on } from '@ngrx/store';
 import * as catalogActions from '../actions/catalog.actions';
 import { IProduct } from '../../../models/IProduct';
 import { ICategory } from '../../../models/ICategory';
-import { ProductService } from 'src/app/services/product.service';
 
 export interface CatalogState {
   products: IProduct[];
   categories: ICategory[],
   loaded: boolean;
   loading: boolean;
-  selectedCategoryId: number
+  selectedCategoryId: string
 }
 
 export const initialState: CatalogState = {
@@ -17,7 +16,7 @@ export const initialState: CatalogState = {
   categories: [],
   loaded: false,
   loading: false,
-  selectedCategoryId: 0
+  selectedCategoryId: ""
 };
 
 
@@ -41,11 +40,11 @@ const loadCategories = (state: any, response: any) => {
 
 const catalogReducer = createReducer(
     initialState,
-    on(catalogActions.LoadCatalog, state => ({ ...state, loading: true })),
-    on(catalogActions.LoadCatalogFail, state => ({ ...state, loaded: false, loading: false })), 
+    on(catalogActions.LoadCatalog, (state: any) => ({ ...state, loading: true })),
+    on(catalogActions.LoadCatalogFail, (state: any) => ({ ...state, loaded: false, loading: false })), 
     on(catalogActions.LoadCatalogSuccess, loadProducts),
     on(catalogActions.LoadCategoriesSuccess, loadCategories),
-    on(catalogActions.SelectCategory, (state, response) => ({  ...state, selectedCategoryId: +response.payload})),
+    on(catalogActions.SelectCategory, (state: any, response: { payload: string; }) => ({  ...state, selectedCategoryId: response.payload})),
   );
   
 export function reducer(state: CatalogState | undefined, action: Action) {
