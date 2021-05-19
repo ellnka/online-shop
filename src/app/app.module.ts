@@ -6,6 +6,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { RouterModule } from '@angular/router';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -70,6 +74,8 @@ import { CarouselComponent } from './common/components/carousel/carousel.compone
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
+    BrowserAnimationsModule,
+    RouterModule,
   ],
   providers: [{provide: RouterStateSerializer, useClass: CustomSerializer},
               {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor}],
