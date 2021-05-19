@@ -38,7 +38,7 @@ export class RegisterPageComponent implements OnInit {
 
     this.aSub = this.auth.register(this.form.value).subscribe(
       () => {
-        this.router.navigate(['/login'], {queryParams: {registered: true}});
+        this.router.navigate(['/auth/login'], {queryParams: {registered: true}});
       },
       (error) => { 
         this.form.enable();

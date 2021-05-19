@@ -21,16 +21,16 @@ import { CrmCategoriesPageComponent } from './common/components/pages/crm-catego
 import { CrmProductsPageComponent } from './common/components/pages/crm-products-page/crm-products-page.component';
 
 const routes: Routes = [
-  { path: '', component: AuthLayoutComponent, children: [
+  { path: 'auth', component: AuthLayoutComponent, children: [
     { path: 'login', component: LoginPageComponent, pathMatch: 'full' },
     { path: 'register', component: RegisterPageComponent, pathMatch: 'full' }
   ]},
-  { path: '', component: ProfileLayoutComponent, canActivate: [AuthGuard], children: [
+  { path: 'profile', component: ProfileLayoutComponent, canActivate: [AuthGuard], children: [
     { path: 'overview', component: OverviewPageComponent, pathMatch: 'full'},
     { path: 'profile', component: ProfilePageComponent, pathMatch: 'full'},
     { path: 'order-history', component: OrderHistoryPageComponent, pathMatch: 'full'},
   ]},
-  { path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children: [
+  { path: '', component: SiteLayoutComponent, children: [
     { path: '', component: HomePageComponent, pathMatch: 'full' },
     { path: 'catalog', component: CatalogPageComponent, pathMatch: 'full', resolve: { catalog: CatalogResolver } },
     { path: 'product/:id', component: ProductPageComponent, resolve: { product: ProductResolver }},
