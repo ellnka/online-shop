@@ -18,13 +18,14 @@ export class CartService {
   }
 
   getItemsCount() {
-    let items = localStorage.getItem("items") || "";
+    let items = localStorage.getItem("items") || "[]";
     this.items = JSON.parse(items);
     return this.items.length;
   }
 
   clearCart() {
     this.items = [];
+    localStorage.removeItem("items");
     return this.items;
   }
 }

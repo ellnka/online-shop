@@ -1,7 +1,11 @@
 <div class="cart-page">
     <h3>Cart</h3>
-    <div class="cart-item" *ngFor="let item of items">
-        <span>{{ item.name }}</span>
-        <span>{{ item.cost }} {{ currency }}</span>
-    </div>
+    <div class="cart-items">
+        <div class="cart-items__row" *ngFor="let item of items">
+            <span>{{ item.name }}</span>
+            <span>{{ item.cost }} {{ currency }}</span>
+        </div>
+    </div>      
+    
+    <button (click)="removeAll()">Remove all items</button>
 </div>
