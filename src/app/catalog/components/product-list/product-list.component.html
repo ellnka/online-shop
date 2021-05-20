@@ -1,9 +1,17 @@
 <div class="catalog" >
+
   <div class="catalog__header">
     <div class="catalog__title">Product catalog</div>
     <div class="catalog__description">Here you can find and buy fresh and delicious food</div>
   </div>
 
+  <div class="catalog__filter">
+    <span>Filters: </span>
+    <ul>
+      <li (click)="filterProductsByCategory('')" [class.catalog__filter--active]= "''=== selectedCategoryId"><span>All</span></li>
+      <li *ngFor="let category of (categories$ | async)" (click)="filterProductsByCategory(category?._id || '')" [class.catalog__filter--active]="category?._id === selectedCategoryId"><span>{{category.name}}</span></li>
+    </ul>
+  </div>
 
   <div class="catalog__list" *ngIf="!(productsLoading$ | async); else loading">
       <app-product-card
