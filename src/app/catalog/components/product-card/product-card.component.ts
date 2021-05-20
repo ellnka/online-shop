@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
+import { CartService } from 'src/app/services/cart.service';
 
 import {IProduct} from '../../../models/IProduct';
 import * as fromStore from '../../store';
@@ -15,7 +16,8 @@ export class ProductCardComponent implements OnInit {
   currency:string = "$";
 
   constructor(
-    private store: Store<fromStore.State>
+    private store: Store<fromStore.State>,
+    private cartService: CartService
   ) {
     this.product = {
      name: ""
@@ -25,6 +27,8 @@ export class ProductCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addToBasket():void {}
+  addToCart() {
+    this.cartService.addToCart(this.product);
+  }
 
 }

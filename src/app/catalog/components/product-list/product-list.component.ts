@@ -18,7 +18,8 @@ export class ProductListComponent implements OnInit  {
   public categories$: Observable<ICategory[]> = EMPTY;
   public selectedCategoryId: string = "";
 
-  constructor(private store: Store<fromStore.State>) {
+  constructor(
+    private store: Store<fromStore.State>) {
     this.products$ = EMPTY;
     this.selectedCategoryId$ = EMPTY;
     this.productsLoading$  = EMPTY;
@@ -36,5 +37,4 @@ export class ProductListComponent implements OnInit  {
     this.store.dispatch(fromStore.SelectCategory({payload: categoryId}));
     this.selectedCategoryId = categoryId;
   }
-
 }

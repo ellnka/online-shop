@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -16,12 +17,17 @@ export class HeaderComponent implements OnInit{
 
   constructor(
     private auth: AuthService,
+    private cartService: CartService,
     private router: Router) {
       this.isAuth = false;
   }
 
   ngOnInit() {
     this.isAuth = this.auth.isAuth();
+  }
+
+  getCartItemsCount() {
+    return this.cartService.getItemsCount()
   }
 
   

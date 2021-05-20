@@ -15,6 +15,7 @@
         <li>
           <a class="header__menu-item header__profile" *ngIf="isAuth" routerLink="/basket">
             <img src="assets/images/cart.png" width="32px" alt="Basket" />
+            <span class="header__cart-items" *ngIf="getCartItemsCount()>0">{{getCartItemsCount()}}</span>
           </a>
         </li>
         <li>

@@ -39,6 +39,7 @@ import { CrmCategoriesPageComponent } from './common/components/pages/crm-catego
 import { CrmProductsPageComponent } from './common/components/pages/crm-products-page/crm-products-page.component';
 import { CarouselComponent } from './common/components/carousel/carousel.component';
 import { FilterCatalogPipe } from './catalog/pipes/filter-catalog.pipe';
+import { CartPageComponent } from './common/components/pages/cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { FilterCatalogPipe } from './catalog/pipes/filter-catalog.pipe';
     CrmProductsPageComponent,
     CarouselComponent,
     FilterCatalogPipe,
+    CartPageComponent,
   ],
   imports: [
     BrowserModule,

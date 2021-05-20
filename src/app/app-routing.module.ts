@@ -19,6 +19,7 @@ import { OrderHistoryPageComponent } from './profile/components/pages/order-hist
 import { CrmPageComponent } from './common/components/pages/crm-page/crm-page.component';
 import { CrmCategoriesPageComponent } from './common/components/pages/crm-categories-page/crm-categories-page.component';
 import { CrmProductsPageComponent } from './common/components/pages/crm-products-page/crm-products-page.component';
+import { CartPageComponent } from './common/components/pages/cart-page/cart-page.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthLayoutComponent, children: [
@@ -34,6 +35,7 @@ const routes: Routes = [
     { path: '', component: HomePageComponent, pathMatch: 'full' },
     { path: 'catalog', component: CatalogPageComponent, pathMatch: 'full', resolve: { catalog: CatalogResolver } },
     { path: 'product/:id', component: ProductPageComponent, resolve: { product: ProductResolver }},
+    { path: 'basket', component: CartPageComponent, pathMatch: 'full' },
 
     { path: 'crm', component: CrmPageComponent, pathMatch: 'full'},
     { path: 'crm/categories', component: CrmCategoriesPageComponent, pathMatch: 'full'},
