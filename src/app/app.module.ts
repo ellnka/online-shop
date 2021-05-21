@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
@@ -83,7 +83,8 @@ import { CartItemComponent } from './common/components/cart/cart-item/cart-item.
     RouterModule,
   ],
   providers: [{provide: RouterStateSerializer, useClass: CustomSerializer},
-              {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor}],
+              {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor},
+              {provide: DEFAULT_CURRENCY_CODE, useValue: 'USD'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

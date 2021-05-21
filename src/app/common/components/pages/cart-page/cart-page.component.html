@@ -2,7 +2,7 @@
     <div class="cart-page__col--left">
         <h3>Cart</h3>
         <div class="cart-items">
-            <p  *ngIf="!items?.length">You cart is empty. It's time to shopping.</p>
+            <p  *ngIf="!items?.length">You cart is empty. It's time for shopping.</p>
             <app-cart-item class="cart-items__row" *ngFor="let item of items"  [item]="item"  (delete)="getItems()"> 
             </app-cart-item>
         </div>      

@@ -13,8 +13,6 @@ export class CartItemComponent implements OnInit {
 
   @Input() item:{product: IProduct, count: number}|null = null;;
   count: number = 0;
-  currency = "$";
-
 
   constructor(private cartService: CartService) { }
   @Output() delete = new EventEmitter();
