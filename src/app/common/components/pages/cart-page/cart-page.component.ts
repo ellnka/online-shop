@@ -8,11 +8,15 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartPageComponent implements OnInit {
   items = this.cartService.getItems();
-  currency = "$";
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.items = this.cartService.getItems();
+  }
+
+  getItems(): void {
+    this.items = this.cartService.getItems();
   }
 
   removeAll() {

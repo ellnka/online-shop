@@ -1,11 +1,15 @@
 <div class="cart-page">
-    <h3>Cart</h3>
-    <div class="cart-items">
-        <div class="cart-items__row" *ngFor="let item of items">
-            <span>{{ item.name }}</span>
-            <span>{{ item.cost }} {{ currency }}</span>
+    <div class="cart-page__col--left">
+        <h3>Cart</h3>
+        <div class="cart-items">
+            <p  *ngIf="!items?.length">You cart is empty. It's time to shopping.</p>
+            <app-cart-item class="cart-items__row" *ngFor="let item of items"  [item]="item"  (delete)="getItems()"> 
+            </app-cart-item>
+        </div>      
+        <div class="cart-items--actions--all">
+            <button *ngIf="items?.length" (click)="removeAll()">Remove all items</button>
         </div>
-    </div>      
-    
-    <button (click)="removeAll()">Remove all items</button>
+    </div>
+    <div  class="cart-page__col--right"></div>
 </div>
+
