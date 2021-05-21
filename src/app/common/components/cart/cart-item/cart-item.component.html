@@ -1,6 +1,6 @@
 <div class="cart-item__col cart-item__col--1">
     <a class="product-card__link" [routerLink]="['/product', item?.product?._id]">{{ item?.product?.name }}</a></div>
-<div class="cart-item__col cart-item__col--2"><span>{{ item?.product?.cost | currency }}}</span></div>
+<div class="cart-item__col cart-item__col--2"><span>{{ item?.product?.cost | currency }}</span></div>
 <div class="cart-item__col cart-item__col--3"> 
     <button class="counter" (click)="changeCount(-1)">-</button>
     {{ count }}
