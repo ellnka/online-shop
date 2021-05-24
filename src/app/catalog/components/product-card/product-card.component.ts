@@ -15,7 +15,6 @@ export class ProductCardComponent implements OnInit {
   @Input() product: IProduct;
 
   constructor(
-    private store: Store<fromStore.State>,
     private cartService: CartService
   ) {
     this.product = {

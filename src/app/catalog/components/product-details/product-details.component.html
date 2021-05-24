@@ -9,6 +9,11 @@
       <div>
         <p> {{product?.description}} </p>
       </div>
+
+      <div class="product-details__add-to-basket button-wrap">
+        <span>{{product?.cost | currency}}</span>
+        <button class="basket-icon-wrap" (click)="addToCart()">Buy</button>  
+      </div>
       
     </div>
     <div  class="product-details__right-col">

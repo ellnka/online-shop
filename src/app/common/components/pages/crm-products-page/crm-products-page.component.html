@@ -52,14 +52,14 @@
     <div class="list">
         <div class="list__header">
             <div class="list__cell list__cell--25">Name</div>
-            <div class="list__cell list__cell--25">Cost</div>
+            <div class="list__cell list__cell--10">Cost</div>
             <div class="list__cell list__cell--50">Description</div>
         </div>
 
         <div class="list__row" *ngFor="let product of products" >
             <div class="list__cell list__cell--25">{{product.name}}</div>
-            <div class="list__cell list__cell--25">{{product.cost}}</div>
-            <div class="list__cell list__cell--25">{{product.description}}</div>
+            <div class="list__cell list__cell--10">{{product.cost}}</div>
+            <div class="list__cell list__cell--40">{{product.description}}</div>
             <div class="list__cell list__cell--25">
                 <button class="button" (click)="onSelectProduct(product)">Edit</button>
                 <button class="button button--red" (click)="onDeleteProduct(product)">Delete</button>
