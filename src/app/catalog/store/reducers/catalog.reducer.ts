@@ -5,6 +5,7 @@ import { ICategory } from '../../../models/ICategory';
 
 export interface CatalogState {
   products: IProduct[];
+  product: IProduct;
   categories: ICategory[],
   loaded: boolean;
   loading: boolean;
@@ -13,6 +14,7 @@ export interface CatalogState {
 
 export const initialState: CatalogState = {
   products: [],
+  product: {name: ""},
   categories: [],
   loaded: false,
   loading: false,
@@ -25,6 +27,16 @@ const loadProducts = (state: any, response: any) => {
   return {
     ...state,
     products,
+    loaded: true,
+    loading: false
+  }
+}
+
+const loadProduct = (state: any, response: any) => {
+  let product = response.payload;
+  return {
+    ...state,
+    product,
     loaded: true,
     loading: false
   }
@@ -43,6 +55,8 @@ const catalogReducer = createReducer(
     on(catalogActions.LoadCatalog, (state: any) => ({ ...state, loading: true })),
     on(catalogActions.LoadCatalogFail, (state: any) => ({ ...state, loaded: false, loading: false })), 
     on(catalogActions.LoadCatalogSuccess, loadProducts),
+    on(catalogActions.LoadProductFail, (state: any) => ({ ...state, loaded: false, loading: false })), 
+    on(catalogActions.LoadProductSuccess, loadProduct),
     on(catalogActions.LoadCategoriesSuccess, loadCategories),
     on(catalogActions.SelectCategory, (state: any, response: { payload: string; }) => ({  ...state, selectedCategoryId: response.payload})),
   );

@@ -1,0 +1,20 @@
+<div class="recipes-list" >
+
+    <div class="recipes-list__header">
+        <div class="recipes-list__title">Recipes catalog</div>
+        <div class="recipes-list__description">Here you can find healthy and delicious recipes</div>
+    </div>
+    <div class="recipes-list__list" *ngIf="!(recipesLoading$ | async); else loading">
+        <div  *ngIf="(recipes$ | async)?.length === 0">No recipes found</div>
+        
+        <app-recipe-card
+            class="recipes-list__item-card"
+            *ngFor="let recipe of (recipes$ | async)"
+            [recipe]="recipe"
+        >{{ recipe.name }}</app-recipe-card>
+    </div>
+</div>
+    
+<ng-template #loading>
+    <div> Loading... </div>
+</ng-template>

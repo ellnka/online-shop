@@ -19,5 +19,3 @@ const basketSchema = new Schema({
 });
 
 module.exports = mongoose.model('baskets', ordebasketSchemarSchema);
-
-

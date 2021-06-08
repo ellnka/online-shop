@@ -12,17 +12,13 @@ import { ICategory } from 'src/app/models/ICategory';
   styleUrls: ['./product-list.component.sass']
 })
 export class ProductListComponent implements OnInit  {
-  public products$: Observable<IProduct[] | null>;
-  public productsLoading$: Observable<boolean>;
-  public selectedCategoryId$: Observable<string>;
+  public products$: Observable<IProduct[] | null> = EMPTY;
+  public productsLoading$: Observable<boolean> = EMPTY;
+  public selectedCategoryId$: Observable<string> = EMPTY;
   public categories$: Observable<ICategory[]> = EMPTY;
   public selectedCategoryId: string = "";
 
-  constructor(
-    private store: Store<fromStore.State>) {
-    this.products$ = EMPTY;
-    this.selectedCategoryId$ = EMPTY;
-    this.productsLoading$  = EMPTY;
+  constructor(private store: Store<fromStore.State>) {
   }
 
   ngOnInit(): void {

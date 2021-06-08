@@ -4,13 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { routerReducer, RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { RouterModule } from '@angular/router';
-
-
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { StripeCheckout, StripeModule } from 'ngx-stripe-checkout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +20,10 @@ import { NotFoundPageComponent } from './common/components/pages/not-found-page/
 import { HeaderComponent } from './common/components/header/header.component';
 import { ProductCardComponent } from './catalog/components/product-card/product-card.component';
 
-import { reducers, effects, CustomSerializer } from "./catalog/store";
+import { catalogReducers, catalogEffects } from "./catalog/store";
+import { recipesReducers, recipesEffects } from "./recipes/store";
+import { CustomSerializer } from './store/router.selectors';
+
 import { HomePageComponent } from './common/components/pages/home-page/home-page.component';
 import { ProductDetailsComponent } from './catalog/components/product-details/product-details.component';
 import { ProductPageComponent } from './catalog/components/pages/product-page/product-page.component';
@@ -41,6 +43,20 @@ import { CarouselComponent } from './common/components/carousel/carousel.compone
 import { FilterCatalogPipe } from './catalog/pipes/filter-catalog.pipe';
 import { CartPageComponent } from './common/components/pages/cart-page/cart-page.component';
 import { CartItemComponent } from './common/components/cart/cart-item/cart-item.component';
+import { CheckoutComponent } from './common/components/cart/checkout/checkout.component';
+import { DeliveryComponent } from './common/components/cart/delivery/delivery.component';
+import { AddressAutoCompleteComponent } from './common/components/cart/address-auto-complete/address-auto-complete.component';
+import { PaymentComponent } from './common/components/cart/payment/payment.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SearchComponent } from './common/components/search/search.component';
+import { FilterHighlightDirective } from './directives/filter-highlight.directive';
+import { RecipesPageComponent } from './recipes/components/pages/recipes-page/recipes-page.component';
+import { RecipesListComponent } from './recipes/components/recipes-list/recipes-list.component';
+import { RecipeCardComponent } from './recipes/components/recipe-card/recipe-card.component';
+import { RecipeDetailsComponent } from './recipes/components/recipe-details/recipe-details.component';
+import { RecipePageComponent } from './recipes/components/pages/recipe-page/recipe-page.component';
+import { AccordionComponent } from './common/components/accordion/accordion.component';
+import { AccordionGroupComponent } from './common/components/accordion/accordion-group.component';
 
 @NgModule({
   declarations: [
@@ -68,12 +84,26 @@ import { CartItemComponent } from './common/components/cart/cart-item/cart-item.
     FilterCatalogPipe,
     CartPageComponent,
     CartItemComponent,
+    CheckoutComponent,
+    DeliveryComponent,
+    AddressAutoCompleteComponent,
+    PaymentComponent,
+    FilterPipe,
+    SearchComponent,
+    FilterHighlightDirective,
+    RecipesPageComponent,
+    RecipesListComponent,
+    RecipeCardComponent,
+    RecipeDetailsComponent,
+    RecipePageComponent,
+    AccordionComponent,
+    AccordionGroupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    EffectsModule.forRoot(effects),
-    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(catalogEffects.concat(recipesEffects)),
+    StoreModule.forRoot({catalog: catalogReducers, recipes: recipesReducers, router: routerReducer}),
     HttpClientModule,
     StoreRouterConnectingModule.forRoot(),
     FormsModule,
@@ -81,10 +111,13 @@ import { CartItemComponent } from './common/components/cart/cart-item/cart-item.
     CarouselModule,
     BrowserAnimationsModule,
     RouterModule,
+    GooglePlaceModule,
+    StripeModule,
   ],
   providers: [{provide: RouterStateSerializer, useClass: CustomSerializer},
               {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor},
-              {provide: DEFAULT_CURRENCY_CODE, useValue: 'USD'}],
+              {provide: DEFAULT_CURRENCY_CODE, useValue: 'USD'},
+              StripeCheckout],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,7 +3,7 @@ const errorHandler = require('./../utils/errorHandler');
 
 module.exports.getById = async (req, res) => {
     try {
-        const product = await Product.findById( req.params.id);
+        const product = await Product.findById(req.params.id);
         res.status(200).json(product);
     } catch(error) {
         errorHandler(res, error);

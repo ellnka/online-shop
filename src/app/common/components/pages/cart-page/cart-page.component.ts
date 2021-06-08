@@ -23,5 +23,4 @@ export class CartPageComponent implements OnInit {
     this.cartService.clearCart();
     this.items = this.cartService.getItems();
   }
-
 }

@@ -10,6 +10,9 @@
             <button *ngIf="items?.length" (click)="removeAll()">Remove all items</button>
         </div>
     </div>
-    <div  class="cart-page__col--right"></div>
+    <div  class="cart-page__col--right">
+        <app-delivery></app-delivery>
+        <app-payment></app-payment>
+    </div>
 </div>
 

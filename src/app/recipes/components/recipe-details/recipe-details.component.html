@@ -1,0 +1,43 @@
+<div class="recipe-details">
+    
+    <div class="recipe-details__left-col">
+      <div class="recipe-details__content">
+        <h2 class="recipe-details__title">{{ recipe?.name }}</h2>
+      </div>
+  
+      <div>
+        <p> {{recipe?.description}} </p>
+      </div>
+
+      <div>
+        <p class="underlined">Ingridients</p>
+        <div class="products-items">
+          <accordion>
+            <group *ngFor="let category of recipe?.products" [title]="category.category.name">
+              <ul class="">
+                <li class="products-item"
+                  *ngFor="let product of (products$ | async) | filterCatalog:(category.category?._id || null)"
+                >
+                  <div class="products-item__col products-item__col--1">
+                    <a [routerLink]="['/product', product?._id]">
+                      {{ product.name }}
+                    </a>
+                  </div>
+                  <div class="products-item__col products-item__col--2">{{ product?.cost | currency }}</div>
+                  <div class="products-item__col products-item__col--2"> 
+                    <button class="basket-button" (click)="addToCart(product)">Add to Cart</button>  
+                  </div> 
+                </li>
+              </ul>  
+            </group>
+          </accordion>
+        </div>
+      </div>
+    </div>
+
+    <div  class="recipe-details__right-col">
+      <img class="recipe-details__img" [src]="recipe?.image" [alt]="recipe?.name" height="400px">
+    </div>
+  </div>
+
+  

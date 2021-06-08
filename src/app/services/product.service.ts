@@ -13,6 +13,10 @@ export class ProductService {
         return this.http.get<IProduct[]>(`/api/product/`);
     }
 
+    fetchById(product: IProduct): Observable<IProduct> {
+        return this.http.get<IProduct>(`/api/product/${product._id}`);
+    }
+
     fetch(categoryId: string): Observable<IProduct[]> {
         return this.http.get<IProduct[]>(`/api/product/${categoryId}`);
     }

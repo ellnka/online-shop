@@ -1,0 +1,47 @@
+@import '../../../../sass/style'
+
+.recipe-details
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  padding: 32px
+
+  &__right-col
+    width: 50%
+    background-image: url("./../../../../assets/images/dots.svg")
+    background-repeat: repeat-y
+    background-size: 50%
+    background-position: left
+    
+  &__left-col
+    width: 50%
+
+  &__content
+    width: 50%
+
+  &__img
+    max-width: 400px
+    padding: 64px
+  &__products
+    padding: 0
+
+.products-item
+  font-weight: 400
+  display: flex
+  &__col
+    &--1
+      width: 50%
+    &--2
+      width: 25%
+      justify-content: flex-end
+
+.underlined
+  text-decoration: underline
+
+.basket-icon-wrap
+  width: 48px
+  padding: 8px 24px
+  margin: 0 12px
+  border: none
+  font-size: 14px
+  cursor: pointer

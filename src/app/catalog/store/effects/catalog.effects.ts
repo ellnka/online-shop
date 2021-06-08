@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+import { IProduct } from 'src/app/models/IProduct';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -21,6 +22,16 @@ export class CatalogEffects {
       return this.productSerevice.fetchAll().pipe(
         map(products => catalogActions.LoadCatalogSuccess({payload: products})),
         catchError(error => of(catalogActions.LoadCatalogFail(error)))
+      );}
+      )
+  ));
+
+  loadProduct$ =  createEffect(() => this.actions$.pipe(
+    ofType(catalogActions.LoadProduct),
+    switchMap((action) => {
+      return this.productSerevice.fetchById(action.payload).pipe(
+        map((product) => catalogActions.LoadProductSuccess({payload: product})),
+        catchError(error => of(catalogActions.LoadProductFail(error)))
       );}
       )
   ));

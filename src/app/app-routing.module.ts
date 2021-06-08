@@ -20,6 +20,9 @@ import { CrmPageComponent } from './common/components/pages/crm-page/crm-page.co
 import { CrmCategoriesPageComponent } from './common/components/pages/crm-categories-page/crm-categories-page.component';
 import { CrmProductsPageComponent } from './common/components/pages/crm-products-page/crm-products-page.component';
 import { CartPageComponent } from './common/components/pages/cart-page/cart-page.component';
+import { RecipesPageComponent } from './recipes/components/pages/recipes-page/recipes-page.component';
+import { RecipesResolver } from './recipes/resolvers/recipes.resolver';
+import { RecipePageComponent } from './recipes/components/pages/recipe-page/recipe-page.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthLayoutComponent, children: [
@@ -32,10 +35,13 @@ const routes: Routes = [
     { path: 'order-history', component: OrderHistoryPageComponent, pathMatch: 'full'},
   ]},
   { path: '', component: SiteLayoutComponent, children: [
-    { path: '', component: HomePageComponent, pathMatch: 'full' },
+    { path: '', component: HomePageComponent, pathMatch: 'full', resolve: { product: ProductResolver } },
     { path: 'catalog', component: CatalogPageComponent, pathMatch: 'full', resolve: { catalog: CatalogResolver } },
     { path: 'product/:id', component: ProductPageComponent, resolve: { product: ProductResolver }},
     { path: 'basket', component: CartPageComponent, pathMatch: 'full' },
+
+    { path: 'recipes', component: RecipesPageComponent, pathMatch: 'full', resolve: { recipes: RecipesResolver } },
+    { path: 'recipe/:id', component: RecipePageComponent, resolve: { recipes: RecipesResolver, catalog: CatalogResolver }},
 
     { path: 'crm', component: CrmPageComponent, pathMatch: 'full'},
     { path: 'crm/categories', component: CrmCategoriesPageComponent, pathMatch: 'full'},

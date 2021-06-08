@@ -1,0 +1,14 @@
+
+<div class="recipe-card">
+
+      <picture class="recipe-card__img-holder" >
+        <source [srcset]="recipe?.image" type="image/webp">
+        <img class="recipe-card__img" [src]="recipe?.image" width="" height="100%" [alt]="recipe?.name" loading="lazy">
+      </picture>
+
+    <div class="recipe-card__info">
+      <div class="recipe-card__info-header">
+        <div class="recipe-card__title"><a class="recipe-card__link" [routerLink]="['/recipe', recipe?._id]">{{recipe?.name}} </a> </div>  
+      </div>
+    </div>
+</div>

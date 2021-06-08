@@ -25,5 +25,3 @@ categorySchema.virtual('categoryId').get(function() {
 });
 
 module.exports = mongoose.model('categories', categorySchema);
-
-

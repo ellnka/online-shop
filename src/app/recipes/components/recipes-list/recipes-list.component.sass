@@ -1,0 +1,54 @@
+@import '../../../../sass/style'
+
+.recipes-list
+  padding: 24px 32px
+
+  &__header
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 100%
+
+  &__title
+    font-weight: 500
+    font-size: 24px
+    padding: 24px 
+
+  &__description
+    font-weight: 300
+    font-size: 18px
+    padding-bottom: 24px
+
+  &__list
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+  &__item-card
+    width: 33%
+
+  &__filter
+    padding: 12px 24px 
+    display: flex
+    flex-direction: row
+
+    &--active
+      color: $color-red
+
+  &__filter ul
+    display: flex
+    flex-direction: row
+    margin: 0
+    padding: 0
+  
+  &__filter span
+    padding: 4px 8px
+    margin-right: 12px
+    font-weight: 400
+
+  &__filter li span
+    background-color: $background-peach-puff
+    border-radius: 8px
+    cursor: pointer
+    font-size: 14px

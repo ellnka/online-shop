@@ -25,14 +25,13 @@ const productSchema = new Schema({
         type: String,
         default: ''
     },
+    weight: {
+        type: Number
+    }, 
     user: {
         ref: 'users',
         type: Schema.Types.ObjectId
     }
 });
 
-
-
 module.exports = mongoose.model('products', productSchema);
-
-

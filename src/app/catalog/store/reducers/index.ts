@@ -15,7 +15,4 @@ export interface State {
   catalog: fromCatalog.CatalogState
 }
 
-export const reducers: ActionReducerMap<State> = {
-  router: routerReducer,
-  catalog: fromCatalog.reducer
-}
+export const catalogReducers = fromCatalog.reducer;
