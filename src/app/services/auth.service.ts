@@ -28,6 +28,7 @@ export class AuthService {
                     ({token}) => {
                         localStorage.setItem('auth-token', token);
                         this.setToken(token);
+                        localStorage.setItem('auth-email', user.email || "");
                     }
                 )
             );

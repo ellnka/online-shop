@@ -1,1 +1,46 @@
-<p>profile-page works!</p>
+<div class="page">
+    <div class="page__title-wrapper">
+        <h1 class="page__title">User info</h1> 
+        <div class="edit-mode" (click)="onToggleMode()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 508.016 508.016"><path d="M487.19 99.922l-79.6-79.7c-38.2-38.2-83.4-12.9-96.3 0l-259.6 260c-1.9 1.9-3.2 4.2-3.8 6.8l-47.5 203.7c-1.1 4.8.3 9.7 3.8 13.2 3.9 3.9 9.3 4.6 13.2 3.8l203.4-47.7c2.6-.6 4.9-1.9 6.8-3.8l259.6-260c12.8-12.8 39.6-56.6 0-96.3zm-205.7-9.9l58 58.1-181.3 181.6c-3.5-13.4-10.6-26.4-21.2-36.9-10.5-10.6-23.4-17.8-36.8-21.2l181.3-181.6zm-248.5 385.1l11-46.9c14.5 9 26.9 21.4 35.9 35.9l-46.9 11zm176.4-41.3l-101 23.6c-13-24.5-33.3-44.9-57.8-57.8l23.6-101.2c14.3-3.1 30.7 2.3 42.8 14.4 13.2 13.2 18.5 31.6 13.5 46.8-1.7 5.1-.4 10.6 3.4 14.4s9.3 5.1 14.4 3.4c15.1-5 33.5.2 46.7 13.5 12.1 12.1 17.5 28.5 14.4 42.9zm26.8-26c-3.5-13.4-10.6-26.3-21.2-36.9-10.6-10.6-23.4-17.7-36.9-21.2l181.4-181.7 58 58.1-181.3 181.7zm231-231.5l-29.8 29.9-136-136.2 29.8-29.9c7.5-7.5 33.4-23.1 56.4 0l79.6 79.7c25 25 7.5 49 0 56.5z"/></svg>
+        </div>
+    </div>
+    
+    <div class="form-wrapper wrapper">
+        <form class="form wrapper__col" 
+                autocomplete="off"
+                [formGroup]="form"
+                (ngSubmit)="onSubmit()">
+            <div class="form__field">
+                <input class="form__input" formControlName="_id" type="hidden">
+                <input class="form__input" formControlName="__v" type="hidden">
+                <input class="form__input" formControlName="email" type="hidden">
+                <input class="form__input" formControlName="password" type="hidden">
+
+                <label class="form__label" for="name"><span>Name</span></label>
+                <input class="form__input" formControlName="name" [ngClass]="{'inactive': !isEditMode}">
+                <span class="form__error" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+                    <span *ngIf="form.get('name')?.errors?.required">Name cannot be empty</span>
+                </span>
+            </div>
+            <div class="form__field">
+                <label class="form__label" for="surname"><span>Surname</span></label>
+                <input class="form__input" formControlName="surname" [ngClass]="{'inactive': !isEditMode}">
+                <span class="form__error" *ngIf="form.get('surname')?.invalid && form.get('surname')?.touched">
+                    <span *ngIf="form.get('surname')?.errors?.required">Surname cannot be empty</span>
+                </span>
+            </div>
+            <div class="form__field">
+                <label class="form__label" for="address"><span>Address</span></label>
+                <input class="form__input" formControlName="address" [ngClass]="{'inactive': !isEditMode}">
+                <span class="form__error" *ngIf="form.get('address')?.invalid && form.get('address')?.touched">
+                    <span *ngIf="form.get('address')?.errors?.required">Address cannot be empty</span>
+                </span>
+            </div>
+            <div class="actions-wrapper" [ngClass]="{'hidden': !isEditMode}">
+                <button type="submit" class="form__submit button" name="send" id="send" >
+                    Submit        
+                </button>
+            </div>
+        </form>
+    </div>

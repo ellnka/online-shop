@@ -1,0 +1,58 @@
+.page
+  &__title-wrapper
+    display: flex
+    flex-direction: row
+    align-items: center
+.form
+  display: flex
+  flex-direction: column
+
+  &-wrapper
+    display: flex
+    flex-direction: row
+  
+  &__field
+    display: flex
+    flex-direction: row
+    position: relative
+    padding: 15px 0 0
+    overflow: hidden
+
+  &__input
+    padding: 8px
+    border: 0
+    z-index: 1
+    border-bottom: 1px solid #ccc
+
+  &__label
+    width: 40%
+    padding: 8px
+    font-size: 14px
+    color: #7f7f7f
+    max-width: 100%
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    z-index: 4
+    cursor: text
+    transition: font-size .2s ease-out,padding .2s ease-out,color .2s ease-out,opacity .2s ease-out
+
+  &__error
+    color: red
+    font-size: 12px 
+
+.actions-wrapper
+  padding: 24px 0
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+.edit-mode
+  width: 24px
+  margin-left: 48px
+
+.hidden
+  display: none
+
+.inactive
+  pointer-events: none

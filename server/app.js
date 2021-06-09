@@ -4,9 +4,9 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
-const stripe = require('stripe')('sk_test_51Iv28KElDa1Ijc1K7epKN9Kn7cQJUtjtouLmOmkgxb2JL01nM2M46IK8HIVq6qEqE6HCyUf61ULKFjoMpNnrQsWN00JpBO5qsF');
 
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 const analyticsRoutes = require('./routes/analytics');
 const categoryRoutes = require('./routes/category');
 const orderRoutes = require('./routes/order');
@@ -35,6 +35,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(cors());
 app.use('/uploads', express.static('uploads'))
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/category', categoryRoutes);
 app.use('/api/order', orderRoutes);
