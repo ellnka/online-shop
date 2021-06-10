@@ -15,7 +15,8 @@ module.exports.update = async (req, res) => {
         const updatedUser = {
             name: req.body.name,
             surname: req.body.surname,
-            address: req.body.address
+            address: req.body.address,
+            phone: req.body.phone
         };
         
         const user = await User.findOneAndUpdate(

@@ -32,7 +32,6 @@ import { AuthLayoutComponent } from './common/components/layouts/auth-layout/aut
 import { SiteLayoutComponent } from './common/components/layouts/site-layout/site-layout.component';
 import { RegisterPageComponent } from './common/components/pages/register-page/register-page.component';
 import { TokenInterceptor } from './common/interceptors/token.interceptor';
-import { OverviewPageComponent } from './profile/components/pages/overview-page/overview-page.component';
 import { ProfileLayoutComponent } from './common/components/layouts/profile-layout/profile-layout.component';
 import { ProfilePageComponent } from './profile/components/pages/profile-page/profile-page.component';
 import { OrderHistoryPageComponent } from './profile/components/pages/order-history-page/order-history-page.component';
@@ -73,7 +72,6 @@ import { AccordionGroupComponent } from './common/components/accordion/accordion
     AuthLayoutComponent,
     SiteLayoutComponent,
     RegisterPageComponent,
-    OverviewPageComponent,
     ProfileLayoutComponent,
     ProfilePageComponent,
     OrderHistoryPageComponent,

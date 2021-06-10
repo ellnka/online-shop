@@ -31,6 +31,7 @@ export class UserService {
         fd.append('address', user.address || "");
         fd.append('password', user.password || "");
         fd.append('email', user.email || "");
+        fd.append('phone', user.phone || "");
 
         return fd;
     }

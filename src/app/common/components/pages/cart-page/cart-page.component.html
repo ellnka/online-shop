@@ -1,5 +1,6 @@
 <div class="cart-page">
     <div class="cart-page__col--left">
+        <h2 class="cart-page__thank-you" *ngIf="isOrderCompleted">Thank you for you order! We will contact you soon</h2>
         <h3>Cart</h3>
         <div class="cart-items">
             <p  *ngIf="!items?.length">You cart is empty. It's time for shopping.</p>
@@ -11,8 +12,15 @@
         </div>
     </div>
     <div  class="cart-page__col--right">
-        <app-delivery></app-delivery>
+        <app-delivery  [(address)]="address" [(phone)]="phone"></app-delivery>
         <app-payment></app-payment>
+        <div>
+            <p>Total: {{totalPrice() | currency }}</p>
+        </div>
+        <div class="checkout">
+            <button *ngIf="items?.length" (click)="checkout()">Place order</button>
+        </div>
+
     </div>
 </div>
 

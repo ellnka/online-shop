@@ -25,4 +25,8 @@ export class RecipeDetailsComponent implements OnInit{
   addToCart(product: IProduct) {
     this.cartService.addToCart(product);
   }
+
+  isProductInCart(product: IProduct) {
+    return this.cartService.isItemInCart(product);
+  }
 }

@@ -20,11 +20,17 @@ const orderSchema = new Schema({
             ref: 'products',
             type: Schema.Types.ObjectId
         },
-        quantity: {
+        count: {
             type: Number,
             default: 1
         }
-    }]
+    }],
+    address: {
+        type: String
+    },
+    phone: {
+        type: String
+    }
 });
 
 module.exports = mongoose.model('orders', orderSchema);

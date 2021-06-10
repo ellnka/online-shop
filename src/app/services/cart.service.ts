@@ -47,6 +47,17 @@ export class CartService {
     return this.items;
   }
 
+  isItemInCart(product: IProduct) {
+    for (let i = 0; i < this.items.length; i++) {
+
+      if (this.items[i].product?._id === product._id) {
+          return true;
+      }
+    }
+
+    return false;
+  }
+
   getItemsCount() {
     return this.getItems().reduce((result, item) => result + item.count, 0);
   }

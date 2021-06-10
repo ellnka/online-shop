@@ -12,7 +12,6 @@ import { AuthLayoutComponent } from './common/components/layouts/auth-layout/aut
 import { SiteLayoutComponent } from './common/components/layouts/site-layout/site-layout.component';
 import { RegisterPageComponent } from './common/components/pages/register-page/register-page.component';
 import { AuthGuard } from './common/guards/auth.guards';
-import { OverviewPageComponent } from './profile/components/pages/overview-page/overview-page.component';
 import { ProfileLayoutComponent } from './common/components/layouts/profile-layout/profile-layout.component';
 import { ProfilePageComponent } from './profile/components/pages/profile-page/profile-page.component';
 import { OrderHistoryPageComponent } from './profile/components/pages/order-history-page/order-history-page.component';
@@ -30,7 +29,6 @@ const routes: Routes = [
     { path: 'register', component: RegisterPageComponent, pathMatch: 'full' }
   ]},
   { path: 'profile', component: ProfileLayoutComponent, canActivate: [AuthGuard], children: [
-    { path: 'overview', component: OverviewPageComponent, pathMatch: 'full'},
     { path: 'profile', component: ProfilePageComponent, pathMatch: 'full'},
     { path: 'order-history', component: OrderHistoryPageComponent, pathMatch: 'full'},
   ]},

@@ -44,7 +44,7 @@ export class LoginPageComponent implements OnInit {
 
     this.aSub = this.auth.login(this.form.value).subscribe(
       () => {
-        this.router.navigate(['/profile/overview']);
+        this.router.navigate(['/profile/profile']);
       },
       (error) => { 
         this.form.enable();

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { AddressComponent } from 'ngx-google-places-autocomplete/objects/addressComponent';
@@ -11,16 +11,14 @@ import { AddressComponent } from 'ngx-google-places-autocomplete/objects/address
 })
 export class AddressAutoCompleteComponent {
     @ViewChild('places') places: GooglePlaceDirective | null = null;
-    
+    @Input()  address!: string;
+    @Output() addressChange = new EventEmitter<string>();
+
     public onChange(address: Address) {
         if(address.photos && address.photos.length > 0){
             console.dir(address.photos[0].getUrl({maxHeight:500, maxWidth:500}));
         }
-        let x = this.getComponentByType(address,"street_number");
-        console.log(address.geometry.location.lng());
-        console.log(address.geometry.location.lat());
-        console.log(address.geometry.location.toJSON());
-        console.log(address.geometry.viewport.getNorthEast());
+        this.addressChange.emit(this.places?.place?.formatted_address || "");
     }
 
     public getComponentByType(address: Address, type: string): AddressComponent | null {

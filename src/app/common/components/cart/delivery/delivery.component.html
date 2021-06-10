@@ -1,4 +1,12 @@
 <div>
     <p>Delivery address</p>
-    <app-address-auto-complete></app-address-auto-complete>
+    <app-address-auto-complete [(address)]="address" (addressChange)="addressChange"></app-address-auto-complete>
+    <form class="form wrapper__col" 
+                autocomplete="off"
+                [formGroup]="form">
+            <div class="form__field">
+                <label class="form__label" for="phone"><span>Mobile</span></label>
+                <input class="form__input" formControlName="phone" (ngModelChange)="onPhoneChane($event)" [value]="phone">
+            </div>
+        </form>
 </div>

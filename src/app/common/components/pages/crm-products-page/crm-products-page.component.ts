@@ -16,7 +16,8 @@ import { ProductService } from 'src/app/services/product.service';
 export class CrmProductsPageComponent implements OnInit {
 
   form: FormGroup;
-  aSub: Subscription = new Subscription();
+  aSubProd: Subscription = new Subscription();
+  aSubCategory: Subscription = new Subscription();
   categoryId: number = 0;
   products: IProduct[] = [];
   categories: ICategory[] = [];
@@ -37,7 +38,7 @@ export class CrmProductsPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.aSub = this.categoryService.fetchAll().subscribe(
+    this.aSubCategory = this.categoryService.fetchAll().subscribe(
       categories => {
         this.categories = categories; 
       },
@@ -45,7 +46,7 @@ export class CrmProductsPageComponent implements OnInit {
         // TODO: handle error
       });
 
-    this.aSub = this.productService.fetchAll().subscribe(
+    this.aSubProd = this.productService.fetchAll().subscribe(
       products => {
         this.products = products; 
       },
@@ -55,8 +56,11 @@ export class CrmProductsPageComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    if (this.aSub) {
-      this.aSub.unsubscribe();
+    if (this.aSubCategory) {
+      this.aSubCategory.unsubscribe();
+    }
+    if (this.aSubProd) {
+      this.aSubProd.unsubscribe();
     }
   }
 
@@ -75,7 +79,7 @@ export class CrmProductsPageComponent implements OnInit {
     if (this.form.value._id) {
       product._id = this.form.value._id;
       
-      this.aSub = this.productService.update(product, this.imageBig, this.imageSmall).subscribe(
+      this.aSubProd = this.productService.update(product, this.imageBig, this.imageSmall).subscribe(
         product => {
           const index = this.products.findIndex(p => p._id === product._id);
           this.products[index] = product;
@@ -85,7 +89,7 @@ export class CrmProductsPageComponent implements OnInit {
           // TODO: handle error
       }); 
     } else {
-      this.aSub = this.productService.create(product, this.imageBig, this.imageSmall).subscribe(
+      this.aSubProd = this.productService.create(product, this.imageBig, this.imageSmall).subscribe(
         product => {
           this.products.push(product); 
           this.form.enable();
@@ -106,7 +110,7 @@ export class CrmProductsPageComponent implements OnInit {
   }
 
   onDeleteProduct(product: IProduct) {
-    this.aSub = this.productService.delete(product).subscribe(
+    this.aSubProd = this.productService.delete(product).subscribe(
       response => {
         const index = this.products.findIndex(p => p._id === product._id);
         this.products.splice(index, 1);

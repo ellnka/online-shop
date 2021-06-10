@@ -1,5 +1,5 @@
-const Product = require('./../models/Product');
 const Order = require('./../models/Order');
+const errorHandler = require('./../utils/errorHandler');
 
 module.exports.getAll = async (req, res) => {
     const query = {
@@ -33,14 +33,28 @@ module.exports.getAll = async (req, res) => {
     }
 };
 
+module.exports.getAllByUser = async (req, res) => {
+    try {
+        const orders = await Order.find({
+            user: req.params.user
+        }).populate('list.product');
+        res.status(200).json(orders);
+
+    } catch(error) {
+        errorHandler(res, error);
+    }
+};
+
 module.exports.create = async (req, res) => {
     try {
         const lastOrder = await Order.findOne().sort({date: -1});
-        let maxOrder = lastOrder ? lastOrder.order : 0;
 
+        let maxOrder = lastOrder ? lastOrder.order : 0;
         const order = await new Order({
             order: ++maxOrder,
-            user: req.user.id,
+            user: req.body.user,
+            address: req.body.address,
+            phone: req.body.phone,
             list: req.body.list
         }).save();
         res.status(201).json(order);

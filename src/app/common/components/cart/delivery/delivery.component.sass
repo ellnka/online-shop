@@ -2,3 +2,31 @@
   padding: 12px 20px
   border: 1px solid #ccc
   width: 400px
+.form
+  display: flex
+  flex-direction: column
+  width: 100%
+  &-wrapper
+    display: flex
+    flex-direction: row
+  
+  &__field
+    position: relative
+    padding: 15px 0 0
+    overflow: hidden
+
+  &__input
+    padding: 8px 16px
+    border: 0
+    z-index: 1
+    border-bottom: 1px solid #ccc
+
+  &__label
+    width: 40%
+    max-width: 100%
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    z-index: 4
+    cursor: text
+    transition: font-size .2s ease-out,padding .2s ease-out,color .2s ease-out,opacity .2s ease-out

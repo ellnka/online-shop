@@ -17,13 +17,14 @@ export class ProfilePageComponent implements AfterViewInit {
   form: FormGroup= new FormGroup({
     name: new FormControl(null),
     surname: new FormControl(null),
+    phone: new FormControl(null),
     address: new FormControl(null),
 
     email: new FormControl(null),
     password: new FormControl(null),
     _id: new FormControl(null),
     __v: new FormControl(null),
-  });;
+  });
   
 
   constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) {
@@ -35,11 +36,12 @@ export class ProfilePageComponent implements AfterViewInit {
         this.user = {
           name: user.name || "",
           surname: user.surname || "",
+          phone: user.phone || "",
           address: user.address || "",
           ...user
         }; 
         this.form.setValue({
-          ...user
+          ...this.user
         });
       },
       error => {

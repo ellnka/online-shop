@@ -1,1 +1,14 @@
-<p>order-history-page works!</p>
+<h1>Orders</h1>
+<div class="list">
+    <div class="list__header">
+        <div class="list__cell list__cell--25">Address</div>
+        <div class="list__cell list__cell--25">Mobile</div>
+        <div class="list__cell list__cell--50">Products</div>
+    </div>
+
+    <div class="list__row" *ngFor="let order of orders || []" >
+        <div class="list__cell list__cell--25">{{order.address}}</div>
+        <div class="list__cell list__cell--25">{{order.phone}}</div>
+        <div class="list__cell list__cell--50">{{orderProducts(order)}}</div>
+    </div>
+</div>
