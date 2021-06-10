@@ -7,8 +7,7 @@ const orderSchema = new Schema({
         default: Date.now()
     },
     order: {
-        type: Number,
-        unique: true
+        type: Number
     },
     user: {
         ref: 'users',
