@@ -8,7 +8,6 @@ const orderSchema = new Schema({
     },
     order: {
         type: Number,
-        required: true,
         unique: true
     },
     user: {
